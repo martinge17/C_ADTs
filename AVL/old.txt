@@ -1,0 +1,12 @@
+if (isEmptyTree((*tree)->right) || isEmptyTree((*tree)->left)) {  
+            aux = (*tree)->left ? (*tree)->left : (*tree)->right; //If left child is NULL --> aux = right child
+            printf("Removing: %d\n",key); 
+            if(isEmptyTree(aux)){ // No children //Segfault
+                                
+                aux = *tree; 
+                tree = NULLBST;
+            }else{ //One children                           
+
+                *tree = aux; 
+            }
+            free(aux);
