@@ -32,4 +32,5 @@ tPosL previous(tPosL p, tList L);
 tPosL next(tPosL p,tList L);
 void deleteAtPosition(tPosL p , tList *L);
 void deleteList(tList *L);
+bool copyList(tList L, tList *M);
 

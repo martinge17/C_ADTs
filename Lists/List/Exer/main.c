@@ -57,12 +57,15 @@ void reverse_print(tList L){
 int main(){
     //Initialization
     tList L;
+    tList H;
     createEmptyList(&L);
-
     introduce(&L);
     printList(L);
+   // copyList(L,&H);
+    //printList(H);
 	printf("\n\n\n");
 	reverse_print(L);
+    printf("\n");
 
 
     return 0;
