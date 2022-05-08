@@ -9,7 +9,7 @@ bool createNode(tPosT *p) {
 }
 
 bool BuildTree(tBinTree LTree, tItemT d, tBinTree Rtree, tBinTree *T) {
-  if (createNode(&T)) {
+  if (createNode(T)) {
     (*T)->data = d;
     (*T)->left = LTree;
     (*T)->right = Rtree;
