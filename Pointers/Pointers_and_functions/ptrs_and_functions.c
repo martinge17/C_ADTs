@@ -2,39 +2,37 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-//Pointers by value
+// Pointers by value
 
-void function2(int *param){
-    printf("param's address %p\n",param);
-    param=NULL;
-    
+void function2(int *param)
+{
+    printf("param's address %p\n", param);
+    param = NULL;
 }
 
-//Pointer by reference
+// Pointer by reference
 
-void function4(int **par){
-    *par=NULL;
+void function4(int **par)
+{
+    *par = NULL;
 }
 
-int main(){
+int main()
+{
 
-    //Pointer by value
+    // Pointer by value
 
     int variable = 111;
-    int *ptr= &variable;
+    int *ptr = &variable;
 
     function2(ptr);
-    printf("ptr's address %p\n",ptr);
- 
-    //Pointer by reference
+    printf("ptr's address %p\n", ptr);
 
-    int var = 111;
-    int *ptr2= &variable;
-   
+    // Pointer by reference
+    int *ptr2 = &variable;
+
     function4(&ptr2);
-    printf("ptr's address %p\n",ptr2);
-
+    printf("ptr's address %p\n", ptr2);
 
     return 0;
 }
-
