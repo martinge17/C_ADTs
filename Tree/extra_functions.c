@@ -1,6 +1,17 @@
 #include "tree_dynamic.h"
 
 
+int countNodes(tBinTree T){
+
+	if(IsEmptyTree(T)){
+		return 0;
+	}
+
+	return 1 + countNodes(LeftChild(T)) + countNodes(RightChild(T));
+
+}
+
+
 int countL(tBinTree T){ //Leaf counter
 	if (IsEmptyTree(T)) {
 		return 0;
@@ -24,7 +35,7 @@ int height(tBinTree T){ //Max tree height
 	if (IsEmptyTree(T)) {
 		return 0;
 	}else {
-		return 1+ comp(height(LeftChild(T)),height(RightChild(T)))  ;
+		return 1 + comp(height(LeftChild(T)),height(RightChild(T)));
 	}
 }
 
