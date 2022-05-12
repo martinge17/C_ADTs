@@ -25,7 +25,7 @@ tBST findKey(tBST tree, tKey key){
 
 }
 
-bool createBSTNode (tBSTPos* p,tKey key){
+bool createBSTNode(tBSTPos* p,tKey key){
 
     *p = malloc(sizeof(struct tBSTNode));
 
