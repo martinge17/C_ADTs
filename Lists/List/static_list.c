@@ -14,8 +14,9 @@ bool insertItem(tItemL d, tPosL p, tList *L) {
     if (p == LNULL) { // Insert at the end
       L->data[L->lastPos] = d;
     } else {
-      for (i = L->lastPos; i >= p + 1;i--) //moves the elements one position forward 
+      for (i = L->lastPos; i > p;i--) //moves the elements one position forward
         L->data[i] = L->data[i - 1];
+
       L->data[p] = d;
     }
     return true;
