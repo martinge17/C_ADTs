@@ -2,13 +2,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-bool isEmptyList(tList L) { return (L == NULL); }
+bool isEmptyList(tList L) { return (L == LNULL); }
 
 void createEmptyList(tList *L) { *L = LNULL; }
 
 bool createNode(tPosL *p) {
   *p = malloc(sizeof(struct tNode));
-  return *p != NULL;
+  return *p != LNULL;
 }
 
 tPosL findPosition(tList L, tItemL d) {
@@ -16,7 +16,7 @@ tPosL findPosition(tList L, tItemL d) {
   tPosL p;
 
   p = L;
-  while ((p->next != LNULL) &&
+  while ((p != LNULL) &&
          (p->next->data < d)) { //Continue while data is ordered
     p = p->next;
   }
@@ -55,7 +55,7 @@ void updateItem(tItemL d, tPosL p, tList *L) {
 tPosL findItem(tItemL d, tList L) { 
   tPosL p;
 
-  for (p = L; (p != NULL) && (p->data < d); p = p->next)
+  for (p = L; (p != LNULL) && (p->data < d); p = p->next)
     ; 
   if (p != LNULL && p->data == d) {
     return p;
