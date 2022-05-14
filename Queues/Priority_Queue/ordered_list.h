@@ -4,7 +4,7 @@
 /* Types definition */
 
 #define LNULL NULL
-#define MAXPRIO //Max priority level
+#define MAXPRIO 5 //Max priority level
 
 typedef int tPriority; 
 

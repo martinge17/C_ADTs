@@ -2,6 +2,17 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+
+/*
+ * Order Explanation:
+ *    1 -> Inmediate
+ *    2 -> Very Urgent
+ *    3 -> Urgent
+ *    4 -> Standard
+ *    5 -> Non-Urgent
+ */
+
+
 bool isEmptyList(tOrderedList L) { return (L == LNULL); }
 
 void createEmptyList(tOrderedList *L) { *L = LNULL; }
@@ -13,34 +24,42 @@ bool createNodeL(tPosL *p) {
 
 tPosL findPosition(tOrderedList L, tItemL d) { 
 
-  tPosL p;
+  tPosL p,tmp;
 
   p = L;
-  while ((p->next != LNULL) &&
-         (p->next->data.prio <
-          d.prio)) {  //Continue while data is ordered
-    p = p->next;
+  tmp = L;
+  while ((p != LNULL) &&
+         (p->data.prio < d.prio)) {  //Continue while data is ordered
+      tmp = p;
+      p = p->next;
   }
-  return p;
+  return tmp;
 }
 
 bool insertItem(tPriority prio, tOrderedList *L) {
   tPosL q, p;
 
-  if (!createNodeL(&q)) {
+  if (!createNodeL(&q))
+  {
     return false;
   } else {
+
     q->data.prio = prio;
     q->next = LNULL;
 
-    if (isEmptyList(*L)) { 
+    if (isEmptyList(*L))
+    {
       *L = q;          
 
-    } else if (prio < (*L)->data.prio) { // insert at the top of the list (first element)
+    }
+    else if (prio < (*L)->data.prio)
+    { // insert at the top of the list (first element)
 
       q->next = *L;
       *L = q;
-    } else { //Find right position
+    }
+    else
+    { //Find right position
       p = findPosition(*L, q->data);
       q->next = p->next;
       p->next = q;
@@ -58,11 +77,8 @@ tPosL findItem(tPriority prio, tOrderedList L) {
 
   for (p = L; (p != LNULL) && (p->data.prio < prio); p = p->next)
     ; 
-  if (p != LNULL && p->data.prio == prio) {
-    return p;
-  } else {
-    return LNULL;
-  }
+
+  return p;
 }
 
 
@@ -105,14 +121,18 @@ tPosL next(tPosL p, tOrderedList L) { return p->next; }
 void deleteAtPosition(tPosL p, tOrderedList *L) {
   tPosL q;
 
-  if (p == *L) { // Delete first element
+  if (p == *L)
+  { // Delete first element
     *L = (*L)->next;
-  } else if (p->next == LNULL) { //Delete last element
+  }
+  else if (p->next == LNULL)
+  { //Delete last element
     for (q = *L; q->next->next != p; q = q->next)
       ;
     q->next = LNULL;
 
-  } else { //Middle deletion Overwrite p with q 
+  }
+  else { //Middle deletion Overwrite p with q
      //p--> element we want to delete
     //q-->next element
 
