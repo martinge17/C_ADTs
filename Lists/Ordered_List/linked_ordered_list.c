@@ -57,11 +57,9 @@ tPosL findItem(tItemL d, tList L) {
 
   for (p = L; (p != LNULL) && (p->data < d); p = p->next)
     ; 
-  if (p != LNULL && p->data == d) {
-    return p;
-  } else {
-    return LNULL;
-  }
+
+  return p;
+
 }
 
 tItemL getItem(tPosL p, tList L) { return p->data; }
