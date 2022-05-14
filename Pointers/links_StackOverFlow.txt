@@ -1,0 +1,7 @@
+https://stackoverflow.com/questions/1398307/how-can-i-allocate-memory-and-return-it-via-a-pointer-parameter-to-the-calling
+
+https://stackoverflow.com/questions/897366/how-do-pointer-to-pointers-work-in-c-and-when-might-you-use-them
+
+https://stackoverflow.com/questions/22250067/how-to-get-address-of-a-pointer-in-c-c
+
+https://stackoverflow.com/questions/13431108/changing-address-contained-by-pointer-using-function
