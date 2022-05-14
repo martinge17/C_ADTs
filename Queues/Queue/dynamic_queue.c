@@ -45,9 +45,9 @@ void dequeue(tQueue *Q) {
   }
 
   p = Q->front;
-  Q->front = p->next; 
+  Q->front = p->next;     //Move front one position forward
 
-  if (isEmptyQueue(*Q)) {
+  if (isEmptyQueue(*Q)) { //After moving, check again if the queue is empty
     Q->rear = QNULL;
   }
 
