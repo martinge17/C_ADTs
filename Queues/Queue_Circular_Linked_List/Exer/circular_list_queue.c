@@ -40,9 +40,11 @@ void dequeue(tQueue *Q) {
   } else { 
     del = (*Q)->next;
     (*Q)->next = del->next;
+
+    free(del);
   }
 
-  free(del);
+
 }
 
 tItemQ front(tQueue Q) { return Q->next->data; }
