@@ -39,7 +39,7 @@ tPosL findPosition(tOrderedList L, tItemL d) {
 bool insertItem(tPriority prio, tOrderedList *L) {
   tPosL q, p;
 
-  if (!createNodeL(&q))
+  if (!createNodeL(&q) || prio > MAXPRIO)
   {
     return false;
   } else {
