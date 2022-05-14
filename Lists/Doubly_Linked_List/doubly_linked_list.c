@@ -119,6 +119,12 @@ void deleteList(tList *L) {
 
 bool copyList(tList L, tList *M) { 
 
+  /*
+   * p -> L iterator
+   * q -> M iterator
+   * r -> tmp position
+   */
+
   tPosL p, q, r;
   bool result = true;
 
