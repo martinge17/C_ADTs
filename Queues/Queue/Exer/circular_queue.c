@@ -1,4 +1,4 @@
-#include "static_queue.h"
+#include "circular_queue.h"
 #include <stdbool.h>
 
 void createEmptyQueue(tQueue *Q) {
