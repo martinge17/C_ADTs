@@ -23,5 +23,6 @@ tBinTree LeftChild(tBinTree T);
 tBinTree RightChild(tBinTree T);
 tItemT Root(tBinTree T);
 bool IsEmptyTree(tBinTree T);
+void deleteTree(tBinTree *T);
 
 

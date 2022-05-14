@@ -20,6 +20,21 @@ bool BuildTree(tBinTree LTree, tItemT d, tBinTree Rtree, tBinTree *T) {
   }
 }
 
+void deleteTree(tBinTree *T){
+
+    if (!IsEmptyTree(*T)) {
+
+      deleteTree(&(*T)->left);
+      deleteTree(&(*T)->right);
+
+      free(*T);
+    }
+
+
+}
+
+
+
 tBinTree LeftChild(tBinTree T) { return T->left; }
 
 tBinTree RightChild(tBinTree T) { return T->right; }
