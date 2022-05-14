@@ -89,10 +89,12 @@ void deleteAtPosition(tPosL p, tList *L) {
 
   if (p == *L) { // Delete first element
     *L = (*L)->next;
-  }
-  if (!isEmptyList(*L)) { 
-    (*L)->prev = LNULL;
-  } else { // Middle and end deletion
+
+    if (!isEmptyList(*L)) {
+      (*L)->prev = LNULL;
+    }
+
+  }else { // Middle and end deletion
     
     q = p->prev;       
     q->next = p->next; 
