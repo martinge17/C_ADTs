@@ -45,6 +45,7 @@ bool insertItem(tPriority prio, tOrderedList *L) {
   } else {
 
     q->data.prio = prio;
+    createEmptyQueue(&q->data.queue); //Attention! Queue must be initialized
     q->next = LNULL;
 
     if (isEmptyList(*L))
