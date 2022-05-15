@@ -1,4 +1,5 @@
 #include "tree_dynamic.h"
+#include <stdlib.h>
 
 int countNodes(tBinTree T)
 {
@@ -92,6 +93,21 @@ bool EsLleno(tBinTree T)
 	return EsLleno_AUX(T, 1, height(T));
 }
 
+void deleteTroo(tBinTree *T){
+
+    if (!IsEmptyTree(*T)) {
+
+      deleteTroo(&(*T)->left);
+      deleteTroo(&(*T)->right);
+
+      /* At last, delete root node */
+      printf("Deleteing Node : %d\n", (*T)->data);
+      free(*T);
+	  *T = TNULL;
+    }
+
+}
+
 /*  >------------------------------------------------------ TEST ------------------------------------------------------< */
 
 /*     Original Tree
@@ -148,6 +164,18 @@ int main()
 	{
 		printf("No Full Tree!\n");
 	}
+
+	deleteTroo(&main_tree);
+
+
+	// Test Node Counter
+	printf("Num of Nodes: %d\n", countNodes(main_tree));
+
+	// Test Leaf
+	printf("Num of Leafs: %d\n", countL(main_tree));
+
+	// Test Height
+	printf("Height: %d\n", height(main_tree));
 
 	return 0;
 }
