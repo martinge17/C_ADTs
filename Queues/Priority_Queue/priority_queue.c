@@ -30,10 +30,11 @@ bool enqueueP(tItemQ item, tPriority prio, tQueueP *queueP) {
 
   getItem(pos, *queueP, &prio, &Q);
 
-  // Update
+  // Update the queue
   if (!enqueue(item, &Q)) {
     return false;
   }
+  //Update the list
   updateItem(queueP, pos, Q);
   return true;
 }
