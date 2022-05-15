@@ -7,6 +7,10 @@ void print_headers(tPosL pos,tOrderedList queueP){
     tPriority prio;
     tQueue embedded_queue;
 
+    if(pos==LNULL){
+        return;
+    }
+
     getItem(pos, queueP, &prio, &embedded_queue);
 
     printf("Priority: %d  First: %d \n",prio,front(embedded_queue));
@@ -19,7 +23,7 @@ void queue_tour(tQueueP queueP){
     tPosL pos;
     
     if (isEmptyQueueP(queueP)) {
-
+        return;
     }else {
         for (pos=queueP;pos!=LNULL;pos=pos->next){
             print_headers(pos, queueP);
@@ -42,9 +46,12 @@ int main(){
     enqueueP(123,5,&queueP);
     enqueueP(456,5,&queueP);
     queue_tour(queueP);
+    dequeueP(&queueP);
+    dequeueP(&queueP);
+    dequeueP(&queueP);
+    dequeueP(&queueP);
+    dequeueP(&queueP);
 
-
-    
 
     return 0;
 }
