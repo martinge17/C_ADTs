@@ -28,6 +28,7 @@ void deleteTree(tBinTree *T){
       deleteTree(&(*T)->right);
 
       free(*T);
+      *T = TNULL;
     }
 
 
