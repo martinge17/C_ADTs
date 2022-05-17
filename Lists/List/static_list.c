@@ -26,6 +26,8 @@ bool insertItem(tItemL d, tPosL p, tList *L) {
 bool copyList(tList L, tList *M) {
   tPosL p;
 
+  createEmptyList(M); //First initialize the destination list
+
   for (p = 0; p <= L.lastPos; p++)
     M->data[p] = L.data[p];
   M->lastPos = L.lastPos;
