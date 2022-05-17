@@ -23,7 +23,7 @@ void queue_tour(tQueueP queueP){
     tPosL pos;
     
     if (isEmptyQueueP(queueP)) {
-        return;
+        printf("Empty\n");
     }else {
         for (pos=queueP;pos!=LNULL;pos=pos->next){
             print_headers(pos, queueP);
@@ -38,19 +38,34 @@ int main(){
     createEmptyQueueP(&queueP);
     if(isEmptyQueueP(queueP)){ printf("Empty\n");}
 
+
+
     enqueueP(911,1,&queueP);
     enqueueP(836,1,&queueP);
+    queue_tour(queueP);
     dequeueP(&queueP);
+    printf("Dequeue\n");
     enqueueP(432,2,&queueP);
     enqueueP(536,2,&queueP);
     enqueueP(123,5,&queueP);
     enqueueP(456,5,&queueP);
     queue_tour(queueP);
     dequeueP(&queueP);
+    printf("Dequeue\n");
+    queue_tour(queueP);
     dequeueP(&queueP);
+    printf("Dequeue\n");
+    queue_tour(queueP);
     dequeueP(&queueP);
+    printf("Dequeue\n");
+    queue_tour(queueP);
     dequeueP(&queueP);
+    printf("Dequeue\n");
+    queue_tour(queueP);
     dequeueP(&queueP);
+    printf("Dequeue\n");
+    queue_tour(queueP);
+
 
 
     return 0;
