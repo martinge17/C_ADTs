@@ -36,14 +36,15 @@ void dequeue(tQueue *Q) {
   tPosQ del;
 
   if ((*Q)->next == *Q) { // If there's only one element 
+    del = *Q;
     *Q = QNULL;
   } else { 
     del = (*Q)->next;
     (*Q)->next = del->next;
 
-    free(del);
   }
 
+  free(del);
 
 }
 
