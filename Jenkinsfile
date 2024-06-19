@@ -1,8 +1,9 @@
 pipeline {
     agent {
-        
         label 'docker-test-cloud' // The label assigned to the Docker agent in Jenkins
-        
+        docker {
+            reuseNode true // Reuse the node for the container
+        }
     }
     stages {
         stage('Clone'){
