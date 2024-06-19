@@ -2,13 +2,11 @@ pipeline {
     agent {
         docker {
             label 'docker-test-cloud' // The label assigned to the Docker agent in Jenkins
-            image 'alpine:latest'
         }
     }
     stages {
         stage('Installation'){
             steps{
-                sh 'apk update && apk add build-base git'
                 sh 'git clone https://github.com/martinge17/C_ADTs.git'
             }
         }
