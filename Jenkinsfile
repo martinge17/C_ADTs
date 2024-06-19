@@ -1,8 +1,7 @@
 pipeline {
     agent {
-        docker {
-            label 'docker' // The label assigned to the Docker cloud in Jenkins
-            dockerfile true
+        dockerfile {
+            label 'static-docker' // The label assigned to the Docker agent in Jenkins
         }
     }
     stages {
