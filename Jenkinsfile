@@ -1,8 +1,8 @@
 pipeline {
     agent {
-        docker {
-            label 'docker-test-cloud' // The label assigned to the Docker agent in Jenkins
-        }
+        
+        label 'docker-test-cloud' // The label assigned to the Docker agent in Jenkins
+        
     }
     stages {
         stage('Installation'){
