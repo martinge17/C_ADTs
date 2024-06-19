@@ -5,7 +5,7 @@ pipeline {
         
     }
     stages {
-        stage('Installation'){
+        stage('Clone'){
             steps{
                 sh 'git clone https://github.com/martinge17/C_ADTs.git'
             }
