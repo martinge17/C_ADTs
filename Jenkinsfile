@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            label 'docker' // The label assigned to the Docker agent in Jenkins
+            label 'docker-test-cloud' // The label assigned to the Docker agent in Jenkins
             image 'alpine:latest'
         }
     }
