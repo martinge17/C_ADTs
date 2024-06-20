@@ -1,9 +1,14 @@
-FROM alpine:latest
+# Use an official gcc image as a parent image
+FROM gcc:latest
 
-RUN apk update && apk add build-base git 
+# Set the working directory in the container
+WORKDIR /usr/src/cadts
 
-RUN git clone https://github.com/martinge17/C_ADTs.git
+# Copy the current directory contents into the container at /usr/src/myapp
+COPY . .
 
+# Build the C program
+#RUN gcc -o myprogram myprogram.c
 
-
-
+# Command to run the executable
+#CMD ["./myprogram"]
