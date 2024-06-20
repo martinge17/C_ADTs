@@ -21,8 +21,8 @@ pipeline {
             steps {
                 script {
                     docker.image('cadts-sample').inside {
-                        sh 'gcc -o /usr/src/cadts/C_ADTs/Lists/List/Exer/main /usr/src/cadts/C_ADTs/Lists/List/Exer/main.c /usr/src/cadts/C_ADTs/Lists/List/Exer/linked_list.c'
-                        sh '/usr/src/cadts/C_ADTs/Lists/List/Exer/main'
+                        sh 'gcc -o Lists/List/Exer/main Lists/List/Exer/main.c Lists/List/Exer/linked_list.c'
+                        sh 'Lists/List/Exer/main'
                     }
 
                 }

@@ -1,11 +1,11 @@
 # Use an official gcc image as a parent image
 FROM gcc:latest
 
-# Set the working directory in the container
-WORKDIR /usr/src/cadts
-
 # Copy the current directory contents into the container at /usr/src/myapp
-COPY . .
+COPY . /usr/src/myapp
+
+# Set the working directory in the container
+WORKDIR /usr/src/myapp
 
 # Build the C program
 #RUN gcc -o myprogram myprogram.c
