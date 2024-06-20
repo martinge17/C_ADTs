@@ -30,4 +30,10 @@ pipeline {
         }
                 
     }
+    post {
+        always {
+            //Clean
+            sh 'rm -rf *'
+        }
+    }
 }
