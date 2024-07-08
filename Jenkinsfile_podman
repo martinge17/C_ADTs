@@ -1,0 +1,42 @@
+pipeline {
+    agent {
+        label 'test' // The label assigned to the Podman agent in Jenkins
+    }
+    stages {
+        stage('Clone'){
+            steps{
+                sh 'git clone -b test-jenkins https://github.com/martinge17/C_ADTs.git'
+            }
+        }
+        stage('Build Docker Image'){
+            steps{
+                script{
+                    dir("C_ADTs"){
+                        //Build podman image
+                        sh 'podman build -t cadts-sample .'
+                    }
+                }
+            }
+        }
+        stage('Compile Project') {
+            steps {
+                script {
+                    dir("C_ADTs"){
+                        //Run commands inside Podman container
+                        sh '''
+                            podman run --rm -v $PWD:/workspace -w /workspace cadts-sample \
+                            sh -c "gcc -o Lists/List/Exer/main Lists/List/Exer/main.c Lists/List/Exer/linked_list.c && Lists/List/Exer/main"
+                        '''
+                    }
+                }
+            }
+        }
+                
+    }
+    post {
+        always {
+            //Clean
+            sh 'rm -rf *'
+        }
+    }
+}
